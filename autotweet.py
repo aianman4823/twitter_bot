@@ -1,14 +1,15 @@
 import twitter
-import config
+
 import random
+import os
 
 
 def puttweet():
     auth = twitter.OAuth(
-    consumer_key = config.CONSUMER_KEY,
-    consumer_secret = config.CONSUMER_SECRET,
-    token = config.ACCESS_TOKEN,
-    token_secret = config.ACCESS_SECRET)
+    consumer_key = os.environ["CONSUMER_KEY"],
+    consumer_secret = os.environ["CONSUMER_SECRET"],
+    token = os.environ["ACCESS_TOKEN"],
+    token_secret = os.environ["ACCESS_SECRET"])
 
     t = twitter.Twitter(auth=auth)
 

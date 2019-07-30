@@ -6,13 +6,13 @@ import requests
 import tweepy
 import os
 import datetime
-import config
+
 
 # 各種キーをセット
-CONSUMER_KEY = config.CONSUMER_KEY
-CONSUMER_SECRET = config.CONSUMER_SECRET
-ACCESS_TOKEN = config.ACCESS_TOKEN
-ACCESS_SECRET = config.ACCESS_SECRET
+CONSUMER_KEY = os.environ["CONSUMER_KEY"]
+CONSUMER_SECRET = os.environ["CONSUMER_SECRET"]
+ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
+ACCESS_SECRET = os.environ["ACCESS_SECRET"]
 
 #apiを取得
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)

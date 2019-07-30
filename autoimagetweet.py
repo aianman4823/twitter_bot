@@ -1,10 +1,12 @@
 import twitter
-import config
+
+import os
+
 auth = twitter.OAuth(
-CONSUMER_KEY = config.CONSUMER_KEY,
-CONSUMER_SECRET = config.CONSUMER_SECRET,
-ACCESS_TOKEN = config.ACCESS_TOKEN,
-ACCESS_SECRET = config.ACCESS_SECRET)
+CONSUMER_KEY = os.environ["CONSUMER_KEY"],
+CONSUMER_SECRET = os.environ["CONSUMER_SECRET"],
+ACCESS_TOKEN = os.environ["ACCESS_TOKEN"],
+ACCESS_SECRET = os.environ["ACCESS_SECRET"])
 
 t = twitter.Twitter(auth=auth)
 

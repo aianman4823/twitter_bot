@@ -1,12 +1,13 @@
 import tweepy
-import config
+
+import os
 #xxxxxxxxxxxxxxxxxxxxxは各自取得したAPIをkeyを入れてください。
 
 def autoretweet():
-    CONSUMER_KEY = config.CONSUMER_KEY
-    CONSUMER_SECRET = config.CONSUMER_SECRET
-    ACCESS_TOKEN = config.ACCESS_TOKEN
-    ACCESS_SECRET = config.ACCESS_SECRET
+    CONSUMER_KEY = os.environ["CONSUMER_KEY"]
+    CONSUMER_SECRET = os.environ["CONSUMER_SECRET"]
+    ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
+    ACCESS_SECRET = os.environ["ACCESS_SECRET"]
     # インスタンス作成
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
