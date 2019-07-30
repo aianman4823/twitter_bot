@@ -4,23 +4,25 @@ import autoretweet
 import removefollow
 
 
-scheduler = BlockingScheduler()
 
-@scheduler.scheduled_job('interval',hour=18)
+
+
 def timed_job():
     autolike.liketweet()
     autoretweet.autoretweet()
 
-
-if __name__=="__main__":
-    scheduler.start()
-
-scheduler_remove = BlockingScheduler()
-
-@scheduler_remove.scheduled_job('interval',weeks=1)
 def remove_job():
     removefollow.remove()
 
-if __name__ == "__main__":
-    scheduler_remove.start()
+
+if __name__=="__main__":
+    scheduler = BlockingScheduler()
+    scheduler.add_job(timed_job, 'cron',hour=6,minute=45)
+    scheduler.add_job(remove_job,'cron',hour=7,minute=0)
+
+    try:
+        scheduler.start()
+    except (KeyboardInterrupt,SystemExit):
+        pass
+
 
