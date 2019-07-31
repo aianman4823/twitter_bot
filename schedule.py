@@ -17,8 +17,8 @@ def remove_job():
 
 if __name__=="__main__":
     scheduler = BlockingScheduler()
-    scheduler.add_job(timed_job, 'cron',hour=7,minute=0)
-    scheduler.add_job(retweet_job,'cron',hour=12,minute=0)
+    scheduler.add_job(timed_job, 'interval',days=1)
+    scheduler.add_job(retweet_job,'interval',hour=12)
     scheduler.add_job(remove_job,'interval',weeks=1)
 
     try:
