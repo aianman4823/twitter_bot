@@ -12,7 +12,7 @@ def retweet_job():
 
 if __name__=="__main__":
     scheduler = BlockingScheduler()
-    scheduler.add_job(retweet_job,'interval',hour=12)
+    scheduler.add_job(retweet_job,'interval',minutes=360)
 
     try:
         scheduler.start()
