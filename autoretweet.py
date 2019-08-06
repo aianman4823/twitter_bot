@@ -12,7 +12,7 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-search_results = api.search(q="プログラミング", count=100)
+search_results = api.search(q="プログラミング", count=20)
 
 for result in search_results:
     tweet_id = result.id
